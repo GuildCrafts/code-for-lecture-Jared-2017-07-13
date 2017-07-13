@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+const list = require('./list')
+const append = require('./append')
+
+const printUsage = () => {
+  console.log(`
+Usage:
+  log list (print the log)
+  log append message (append a message to the log)
+  `)
+}
+
+const command = process.argv[2]
+const message = process.argv.slice(3).join(' ')
+
+if (command === 'list'){
+  list()
+}else if (command === 'append') {
+  append(message)
+}else{
+  printUsage()
+  process.exit(1)
+}
