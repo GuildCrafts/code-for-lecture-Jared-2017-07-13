@@ -1,6 +1,5 @@
 const fs = require('fs')
-const logFilePath = __dirname+'/messages.log'
 
-module.exports = (message) => {
+module.exports = (logFilePath, message) => {
   fs.appendFileSync(logFilePath, message+"\n")
 }

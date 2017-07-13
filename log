@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const logFilePath = __dirname+'/messages.log'
+
 const list = require('./list')
 const append = require('./append')
 
@@ -15,9 +17,9 @@ const command = process.argv[2]
 const message = process.argv.slice(3).join(' ')
 
 if (command === 'list'){
-  list()
+  list(logFilePath, process.stdout)
 }else if (command === 'append') {
-  append(message)
+  append(logFilePath, message)
 }else{
   printUsage()
   process.exit(1)
